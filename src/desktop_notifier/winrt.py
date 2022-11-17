@@ -80,9 +80,10 @@ class WinRTDesktopNotifier(DesktopNotifierBase):
 
         :returns: Whether authorisation has been granted.
         """
-        if not await self._request_background_task_access():
-            return False
-        return await self.has_authorisation()
+        return True
+        # if not await self._request_background_task_access():
+        #     return False
+        # return await self.has_authorisation()
 
     async def has_authorisation(self) -> bool:
         """
