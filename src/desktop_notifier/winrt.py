@@ -69,7 +69,7 @@ class WinRTDesktopNotifier(DesktopNotifierBase):
         notification_limit: Optional[int] = None,
     ) -> None:
         super().__init__(app_name, app_icon, notification_limit)
-        self._appid = CoreApplication.get_id()
+        self._appid = "{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\cmd.exe"
         self.manager = ToastNotificationManager.get_default()
         self.notifier = self.manager.create_toast_notifier(self._appid)
 
@@ -125,7 +125,7 @@ class WinRTDesktopNotifier(DesktopNotifierBase):
         else:
             platform_nid = str(uuid.uuid4())
 
-        await self._request_background_task_access()
+        # await self._request_background_task_access()
 
         # Create notification XML.
         toast_xml = Element("toast", {"launch": "default"})
